@@ -35,12 +35,12 @@
 
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
+                </li> -->
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="#">Steam</a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">About Us</a>
                 </li>
@@ -50,17 +50,17 @@
                     </a>
                 </li>
                 <li class="nav-item mr-5 pr-5">
-                    <a href="" class="nav-link">Login</a>
+                    <a href="../public/index.php" class="nav-link">Login</a>
                 </li>
                 </ul>
 
             <!--Barra de Busqueda-->
-                <form class="d-flex">
+                <!-- <form class="d-flex">
 
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="c-header__button btn mr-5" type="submit">Search</button>
 
-                </form>
+                </form> -->
 
           </div>
         </div>

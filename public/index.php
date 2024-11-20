@@ -1,7 +1,5 @@
 <?php 
     include "../templates/header.php";
-    include '../src/controllers/config.php';
-    include '../src/controllers/conexion.php';
 ?>
     <!--Contenedor Principal-->
     <div class="c-container  pt-5 pb-4">
@@ -46,8 +44,15 @@
                         
             <!--   
             </div>-->
-            
-                    <!--Productos--> 
+                <?php 
+                    require "../src/controllers/conexion.php";
+
+                    $sql = "SELECT * FROM producto";
+                    $res = mysqli_query($conexion, $sql);
+                    $listaProductos = mysqli_fetch_all($res, MYSQLI_ASSOC);
+                ?>
+                <?php foreach($listaProductos as $producto){ ?>
+
                 <div class="col-sm-12 col-md-4 col-lg-4 col-xl-3 mx-auto mt-3">
 
                     <a href="" class="">
@@ -57,204 +62,41 @@
                             title="Título Producto"
                             alt="Título"
                             class="card-img-top" 
-                            src="../public/images/game_undertale_img.webp">
+                            src="<?php echo $producto['foto'];?>">
                             
                         <div class="card-body mt-4">
 
-                            <span>Título del Producto JAWUNDIUANWDIUAWNDIOAWNDIAWNDIAWUN</span>
-                            <h5 class="card-title mt-4">$400.00</h4>
-                            <i class="fa fa-check" aria-hidden="true"></i>
-                            <label class=" ">Con existencia</label>
+                            <span><?php echo $producto['nombre']?></span>
+                            <h5 class="card-title mt-4">$<?php echo $producto['precio']?></h4>
                             
-                            
-                            <button class="mt-4 c-card__button btn " name="btnAccion" value="Agregar" type="submit">Agregar Al Carrito</button>
-                        </div>
-            
-                    </div>
 
-                    </a>
-                        
+                            <label class=" "> <?php 
+                                if($producto['inventario'] == 0){
+                                    echo "<i class='fa fa-check' aria-hidden='true'></i>";  
+                                    echo "Sin existencia";
+                                } else{
+                                    echo "<i class='fa fa-check' aria-hidden='true'></i>";  
+                                    echo " Existencia: " . $producto['inventario'];
+                                }
+                                ?>
+                            </label>
+                            <form action="carritoadd.php" method="POST">
+                                <input type="hidden" name="id_juego" value="<?php echo $producto['id_juego'];?>">                            
+                                <button class="mt-4 c-card__button btn " 
+                                    name="btnAccion" 
+                                    value="Agregar" 
+                                    type="submit">
+                                    Agregar Al Carrito
+                                </button>
+                            </form>
+                        </div>            
+                    </div>
+                    </a>                        
                 </div>   
 
-                <div class="col-sm-12 col-md-4 col-lg-4 col-xl-3 mx-auto mt-3">
+                <?php } ?>
 
-                    <div class="card">
-
-                        <img 
-                            title="Título Producto"
-                            alt="Título"
-                            class="card-img-top" 
-                            src="../public/images/game_undertale_img.webp">
-
-                        <div class="card-body ">
-
-                            <span>Título del Producto</span>
-                            <h5 class="card-title">$400.00</h4>
-                            <p class="card-text">Descripcion</p>
-                            <button class="btn c-header__button" name="btnAccion" value="Agregar" type="submit">Agregar Al Carrito</button>
-                        </div>
             
-                    </div>
-                        
-                </div>   
-
-                <div class="col-sm-12 col-md-4 col-lg-4 col-xl-3 mx-auto mt-3">
-
-                    <div class="card">
-
-                        <img 
-                            title="Título Producto"
-                            alt="Título"
-                            class="card-img-top" 
-                            src="../public/images/game_undertale_img.webp">
-
-                        <div class="card-body">
-
-                            <span>Título del Producto</span>
-                            <h5 class="card-title">$400.00</h4>
-                            <p class="card-text">Descripcion</p>
-                            <button class="btn c-header__button" name="btnAccion" value="Agregar" type="submit">Agregar Al Carrito</button>
-                        </div>
-            
-                    </div>
-                        
-                </div>   
-
-                <div class="col-sm-12 col-md-4 col-lg-4 col-xl-3 mx-auto mt-3">
-
-                    <div class="card">
-
-                        <img 
-                            title="Título Producto"
-                            alt="Título"
-                            class="card-img-top" 
-                            src="../public/images/game_undertale_img.webp">
-
-                        <div class="card-body">
-
-                            <span>Título del Producto</span>
-                            <h5 class="card-title">$400.00</h4>
-                            <p class="card-text">Descripcion</p>
-                            <button class="btn c-header__button" name="btnAccion" value="Agregar" type="submit">Agregar Al Carrito</button>
-                        </div>
-            
-                    </div>
-                        
-                </div>   
-
-                <div class="col-sm-12 col-md-4 col-lg-4 col-xl-3 mx-auto mt-3">
-
-                    <div class="card">
-
-                        <img 
-                            title="Título Producto"
-                            alt="Título"
-                            class="card-img-top" 
-                            src="../public/images/game_undertale_img.webp">
-
-                        <div class="card-body">
-
-                            <span>Título del Producto</span>
-                            <h5 class="card-title">$400.00</h4>
-                            <p class="card-text">Descripcion</p>
-                            <button class="btn c-header__button" name="btnAccion" value="Agregar" type="submit">Agregar Al Carrito</button>
-                        </div>
-            
-                    </div>
-                        
-                </div>   
-
-                <div class="col-sm-12 col-md-4 col-lg-4 col-xl-3 mx-auto mt-3">
-
-                    <div class="card">
-
-                        <img 
-                            title="Título Producto"
-                            alt="Título"
-                            class="card-img-top" 
-                            src="../public/images/game_undertale_img.webp">
-
-                        <div class="card-body">
-
-                            <span>Título del Producto</span>
-                            <h5 class="card-title">$400.00</h4>
-                            <p class="card-text">Descripcion</p>
-                            <button class="btn c-header__button" name="btnAccion" value="Agregar" type="submit">Agregar Al Carrito</button>
-                        </div>
-            
-                    </div>
-                        
-                </div>   
-                <div class="col-sm-12 col-md-4 col-lg-4 col-xl-3 mx-auto mt-3">
-
-                    <div class="card">
-
-                        <img 
-                            title="Título Producto"
-                            alt="Título"
-                            class="card-img-top" 
-                            src="../public/images/game_undertale_img.webp">
-
-                        <div class="card-body">
-
-                            <span>Título del Producto</span>
-                            <h5 class="card-title">$400.00</h4>
-                            <p class="card-text">Descripcion</p>
-                            <button class="btn c-header__button" name="btnAccion" value="Agregar" type="submit">Agregar Al Carrito</button>
-                        </div>
-            
-                    </div>
-                        
-                </div>   
-
-                <div class="col-sm-12 col-md-4 col-lg-4 col-xl-3 mx-auto mt-3">
-
-                    <div class="card">
-
-                        <img 
-                            title="Título Producto"
-                            alt="Título"
-                            class="card-img-top" 
-                            src="../public/images/game_undertale_img.webp">
-
-                        <div class="card-body">
-
-                            <span>Título del Producto</span>
-                            <h5 class="card-title">$400.00</h4>
-                            <p class="card-text">Descripcion</p>
-                            <button class="btn c-header__button" name="btnAccion" value="Agregar" type="submit">Agregar Al Carrito</button>
-                        </div>
-            
-                    </div>
-                        
-                </div>   
-
-                <div class="col-sm-12 col-md-4 col-lg-4 col-xl-3 mx-auto mt-3">
-
-                    <div class="card">
-
-                        <img 
-                            title="Título Producto"
-                            alt="Título"
-                            class="card-img-top" 
-                            src="../public/images/game_undertale_img.webp">
-
-                        <div class="card-body">
-
-                            <span>Título del Producto</span>
-                            <h5 class="card-title">$400.00</h4>
-                            <p class="card-text">Descripcion</p>
-                            <button class="btn c-header__button" name="btnAccion" value="Agregar" type="submit">Agregar Al Carrito</button>
-                        </div>
-            
-                    </div>
-                        
-                </div>   
-
-            </div>        
-        </div>
-    </div>
-
 <?php 
     include "../templates/footer.php"
 ?>

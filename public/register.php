@@ -9,13 +9,13 @@
                     <h2>Crear Cuenta</h2>
                     <p>Crea tu propia cuenta de indieKeys para empezar a ganar puntos en tus compras.</p>
 
-                    <form action="">
-                        <input type="text" name="" id="">
-                        <input type="text" name="" id="">
-                        <input type="text" name="" id="">
-                        <input type="text" name="" id="">
-                        <input type="text" name="" id="">
-                        <input type="text" name="" id="">
+                    <form action="registeraccept.php" method="POST">
+                        Usuario : <input type="text" name="username" id="">
+                        Email :<input type="email" name="email" id="">
+                        Password :<input type="password" name="password" id="">
+                        Address: <input type="text" name="address" id="">
+                        BDay :<input type="date" name="bday" id="">
+                        
 
                         <button>Submit</button>
                         <p>Dando Click a "Crear Cuenta", soy consciente de las Politicas de Privacidad, 
