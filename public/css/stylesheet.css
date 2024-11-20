@@ -1,0 +1,56 @@
+:root {
+    --color-main:#323f63;
+    --color-sec:#8f6fd4;
+    --color-third:#a9b3e1;
+    --color-main-l:#424a74;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.c-header{
+    background-image: linear-gradient(55deg, var(--color-main), var(--color-main-l));   
+    color: white; 
+}
+
+.c-header__button{
+    background-color: var(--color-sec);
+    color: white;
+}
+
+.c-header__button:hover{
+    background-color: var(--color-main);
+
+}
+.c-container{
+    background-color: var(--color-main-l);
+    color: white;
+}
+.c-footer{
+    color: white;
+    background-image: linear-gradient(55deg, #323f63, #424a74);  
+}
+.c-footer__text{
+    font-weight: bold;
+    color: var(--color-sec);
+}
+
+.c-card{
+    background-color: var(--color-main-l);
+    border: none;
+    color:white
+}
+.c-card__button{
+    background-color: var(--color-sec);
+    color: white;
+}
+.c-card__button:hover{
+    background-color: var(--color-third);
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
