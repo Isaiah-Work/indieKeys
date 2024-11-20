@@ -5,7 +5,14 @@ error_reporting(E_ALL);
 
 require "../src/controllers/conexion.php";
 
+
 session_start();
+
+if(!isset($_SESSION['usuario'])){
+    header('Location: ../public/login.php');
+}
+
+
 
 $id_usuario = $_SESSION['id_usuario'];
 $id_producto = $_POST['id_juego'];
@@ -29,6 +36,7 @@ if(mysqli_num_rows($res) == 0){
     mysqli_query($conexion, $othersql);
 }
 
+header('Location: /public/catalogo.php');
 
 
 

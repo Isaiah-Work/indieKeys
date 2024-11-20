@@ -17,7 +17,7 @@
 
         <div class="container">
 
-            <a class="navbar-brand" href="../public/index.php">
+            <a class="navbar-brand" href="">
                 <img clas="img" height="40" src="../public/images/Rocky_Linux_Logo.svg" alt="Company Logo">    
             </a>
            
@@ -41,16 +41,17 @@
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="#">Steam</a>
                 </li> -->
+
                 <li class="nav-item">
-                    <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">About Us</a>
+                    <a class="nav-link " href="../public/catalogo.php" tabindex="-1" aria-disabled="true">Catalogo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="../public/carrito.php">
                         <i class="fa fa-shopping-cart mr-3" aria-hidden="true"></i> Mi carrito
                     </a>
                 </li>
                 <li class="nav-item mr-5 pr-5">
-                    <a href="../public/index.php" class="nav-link">Login</a>
+                    <a href="../public/login.php" class="nav-link">Login</a>
                 </li>
                 </ul>
 

@@ -3,14 +3,10 @@
 ?>
     <!--Contenedor Principal-->
     <div class="c-container  pt-5 pb-4">
-
         <div class="container text-left">
-
-            <div class="row"> 
-                
-
+            <div class="row">                 
                 <div class="form-group col-sm-12 col-md-12 col-lg-3 card-body">
-                    
+                
                     <div class="c-card card m-3 p-3 pb-100">                                               
 
                             <label class="mt-2 pb-2">Precio</label>
@@ -32,18 +28,14 @@
                                 <option value="Todos">Todos</option>
                                 <option value="DESC">De mayor a menor</option>
                                 <option value="ASC">De menor a mayor</option>
-                            </select>               
+                            </select>
+
                             <div class="form-group">
                                 <button class="c-header__button btn btn-primary col-12 col-sm-auto mt-3 mb-3" type="submit">Filtrar</button>
                             </div>         
                     </div>
-
                 </div>
-                
-                
-                        
-            <!--   
-            </div>-->
+            
                 <?php 
                     require "../src/controllers/conexion.php";
 
@@ -95,6 +87,10 @@
                 </div>   
 
                 <?php } ?>
+            </div>
+        </div>
+    </div>
+
 
             
 <?php 

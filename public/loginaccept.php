@@ -24,13 +24,18 @@ if(mysqli_num_rows($resultado) == 1) {
         $_SESSION['correo'] = $usuario['correo'];
         $_SESSION['id_usuario'] = $usuario['id_usuario'];
         echo "Inicio de sesión existoso. Bienvenido $username. Tu email es " . $_SESSION['correo'];
+        header('Location: /public/catalogo.php');
     }else{
         echo "Contraseña incorrecta.";
+        header('Location: /public/login.php');
     }
 } else{
     echo "Usuario no encontrado.";
+    header('Location: /public/login.php');
 }
 
 mysqli_close($conexion);
+
+
 
 ?>
