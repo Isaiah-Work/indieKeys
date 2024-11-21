@@ -36,7 +36,10 @@
             </form>
 
         <?php } ?>
-
+                <form action="comprafinalizar.php" method="POST">
+                    <button name="btnComprar">Finalizar Compra</button>
+                    
+                </form>
         
     </div>  
     </div>

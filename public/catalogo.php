@@ -5,7 +5,7 @@
     <div class="c-container  pt-5 pb-4">
         <div class="container text-left">
             <div class="row">                 
-                <div class="form-group col-sm-12 col-md-12 col-lg-3 card-body">
+                <!-- <div class="form-group col-sm-12 col-md-12 col-lg-3 card-body">
                 
                     <div class="c-card card m-3 p-3 pb-100">                                               
 
@@ -34,7 +34,7 @@
                                 <button class="c-header__button btn btn-primary col-12 col-sm-auto mt-3 mb-3" type="submit">Filtrar</button>
                             </div>         
                     </div>
-                </div>
+                </div> -->
             
                 <?php 
                     require "../src/controllers/conexion.php";
@@ -51,10 +51,10 @@
                     <div class="c-card p-3 mb-5 pb-5">
 
                         <img 
-                            title="Título Producto"
-                            alt="Título"
-                            class="card-img-top" 
-                            src="<?php echo base64_decode($producto['foto']);?>">
+                        title="Título Producto"
+                        alt="Título"
+                        class="card-img-top" 
+                        src="data:image/jpeg;base64, <?php echo $producto['foto']; ?>">
                             
                         <div class="card-body mt-4">
 

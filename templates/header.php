@@ -18,7 +18,7 @@
         <div class="container">
 
             <a class="navbar-brand" href="">
-                <img clas="img" height="40" src="../public/images/Rocky_Linux_Logo.svg" alt="Company Logo">    
+                <h2>indieKeys</h2><!-- <img clas="img" height="40" src="../public/images/Rocky_Linux_Logo.svg" alt="Company Logo">     -->
             </a>
            
             <!--Menu de hamburguesa en el Breakpoint md-->
@@ -35,23 +35,21 @@
 
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                <!-- <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Home</a>
-                </li> -->
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="#">Steam</a>
-                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link " href="../public/paneladmin.php" tabindex="-1" aria-disabled="true">Admin</a>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link " href="../public/catalogo.php" tabindex="-1" aria-disabled="true">Catalogo</a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="../public/carrito.php">
                         <i class="fa fa-shopping-cart mr-3" aria-hidden="true"></i> Mi carrito
                     </a>
                 </li>
                 <li class="nav-item mr-5 pr-5">
-                    <a href="../public/login.php" class="nav-link">Login</a>
+                    <a href="../public/login.php" class="nav-link">Sesión</a>
                 </li>
                 </ul>
 

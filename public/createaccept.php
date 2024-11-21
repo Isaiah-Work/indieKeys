@@ -29,7 +29,7 @@
             $sql = "INSERT INTO producto (nombre, descripcion, precio, foto, inventario, desarrollador, plataforma) 
                     VALUES ('$nombre', '$descripcion', $precio, '$imagenBase64', $inventario, '$desarrollador', '$plataforma')";
 
-            $res = mysqli_query($conexion, $sql);
+            
             if (mysqli_query($conexion, $sql)) {
                 echo "Producto creado exitosamente.";
             } else {
