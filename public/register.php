@@ -1,7 +1,11 @@
 <?php 
+    session_start();
+    // Si la sesion ya esta iniciada entonces...
+    if(isset($_SESSION['usuario'])){
+        header('Location: ../public/sesion.php');
+    }
     include "../templates/header.php"
 ?>
-   <!--Login-->
 
     <div class="c-container pt-5 pb-4">
         <div class="container text-center">
@@ -21,7 +25,7 @@
                         <p>Dando Click a "Crear Cuenta", soy consciente de las Politicas de Privacidad, 
                             Condiciones de Uso.</p>
                     </form>
-                        <button>Inicia Sesión</button>
+                        <a href="login.php"><button>Inicia Sesión</button></a>
         </div>
     </div>
 

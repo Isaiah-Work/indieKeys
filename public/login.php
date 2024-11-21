@@ -1,15 +1,12 @@
 <?php 
     session_start();
+    // Si la sesion ya esta iniciada entonces...
     if(isset($_SESSION['usuario'])){
         header('Location: ../public/sesion.php');
     }
     include "../templates/header.php"
 ?>
-   <!--Login-->
-    
-<?php
 
-?>
     <div class="c-container pt-5 pb-4">
         <div class="container text-center">
                 <div class="form-group">
@@ -20,8 +17,6 @@
                     <form action="loginaccept.php" method="POST">
                         Username:<input type="text" name="username" id="">
                         Password:<input type="password" name="password" id="">
-                    
-                    <a href="">Olvide mi contraseña</a>
 
                     <button>Iniciar Sesión</button>
                     </form>

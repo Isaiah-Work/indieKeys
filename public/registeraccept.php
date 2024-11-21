@@ -10,7 +10,7 @@
 
     //Registro de usuario
 
-    // Logear y limpiar datos
+    //limpiar datos
     $username = mysqli_real_escape_string($conexion, $_POST['username']);
     $email = mysqli_real_escape_string($conexion, $_POST['email']);
     $password = trim($_POST['password']);
@@ -19,9 +19,11 @@
     $address = mysqli_real_escape_string($conexion, $_POST['address']);
 
     if (empty($username) || empty($email) || empty($password) || empty($bday) || empty($address)) {
-        die("Por favor completa todos los campos obligatorios.");
+        header('Local: /public/register.php');
     }
     
+    // Hacer la verificación de los datos usuario y correo único
+
 
     //Registro en la tabla
     $sql = "INSERT INTO usuario (usuario, correo, contrasena, fecha_nac, direccion) VALUES 

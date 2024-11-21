@@ -9,6 +9,7 @@ session_start();
 
 require "../src/controllers/conexion.php";
 
+// Limpiar datos 
 $username = mysqli_real_escape_string($conexion, $_POST['username']);
 $password = $_POST['password'];
 
