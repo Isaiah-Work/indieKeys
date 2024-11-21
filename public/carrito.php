@@ -2,6 +2,7 @@
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
+
     require "../src/controllers/auth.php";
     verificarSesion();
     
@@ -12,8 +13,11 @@
         <h2>Carrito de Compras</h2>
         <?php 
             require "../src/controllers/conexion.php";
-            
-            $id_usuario = $_SESSION['id_usuario'];
+            if(!$conexion){
+                die("Error de conexión: " . mysqli_connect_error());
+            }
+
+            $id_usuario = ($_SESSION['id_usuario']);
             $sql = "SELECT c.id_producto, p.nombre, p.precio, c.cantidad FROM carrito_compras as c, producto as p 
                     WHERE id_usuario = $id_usuario AND p.id_juego = c.id_producto;";
             $res = mysqli_query($conexion, $sql);

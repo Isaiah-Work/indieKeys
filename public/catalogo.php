@@ -54,7 +54,7 @@
                             title="Título Producto"
                             alt="Título"
                             class="card-img-top" 
-                            src="<?php echo $producto['foto'];?>">
+                            src="<?php echo base64_decode($producto['foto']);?>">
                             
                         <div class="card-body mt-4">
 

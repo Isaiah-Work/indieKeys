@@ -3,15 +3,20 @@
  
 require "../src/controllers/conexion.php";
 
+if(!$conexion){
+    die("Error de conexión: " . mysqli_connect_error());
+}
+
 // Verificar que el usuario este logeado
 session_start();
 if(!isset($_SESSION['usuario'])){
     header('Location: ../public/login.php');
+    exit;
 }
 
 // Logica de adición de productos
-$id_usuario = $_SESSION['id_usuario'];
-$id_producto = $_POST['id_juego'];
+$id_usuario = mysqli_real_escape_string($conexion,$_SESSION['id_usuario']);
+$id_producto = mysqli_real_escape_string($conexion, $_POST['id_juego']);
 
 // Hacer el Select del carrito de compras para los productos
 $checksql = "SELECT cantidad FROM carrito_compras WHERE id_producto = $id_producto;";
@@ -41,6 +46,7 @@ if(isset($_POST['btnAccion'])){
     }
 
     header('Location: ../public/catalogo.php');
+    exit;
 
 }elseif(isset($_POST['btnAccionSumar'])){
     // Modificar la cantidad de Productos a comprar
@@ -52,6 +58,7 @@ if(isset($_POST['btnAccion'])){
     mysqli_query($conexion, $othersql);
 
     header('Location: /public/carrito.php');
+    exit;
 
 }elseif (isset($_POST['btnAccionRestar'])) {
 
@@ -72,15 +79,9 @@ if(isset($_POST['btnAccion'])){
     }
     
     header('Location: /public/carrito.php');
+    exit;
 }
 
-
-
-
-
-
-
-
-
+mysqli_close($conexion);
 
 ?>

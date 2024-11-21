@@ -2,10 +2,10 @@
     include '../templates/header.php';
 ?>
 
-    <h1>CRUD - Producto</h1>
+    <h1>CREATE | UPDATE - Producto</h1>
 
     <!-- Formulario para Crear o Actualizar -->
-    <form action="producto_crud.php" method="POST">
+    <form action="createaccept.php" method="POST" enctype="multipart/form-data">
         <h2>Crear o Actualizar Producto</h2>
         <label for="id">ID (solo para actualizar):</label>
         <input type="text" id="id" name="id_juego" placeholder="Dejar vacío para crear"><br><br>
@@ -35,24 +35,3 @@
         <button type="submit" name="update" value="update">Actualizar</button>
     </form>
 
-    <hr>
-
-    <!-- Formulario para Eliminar -->
-    <form action="producto_crud.php" method="POST">
-        <h2>Eliminar Producto</h2>
-        <label for="delete_id">ID del Producto:</label>
-        <input type="text" id="delete_id" name="id_delete" required><br><br>
-        <button type="submit" name="delete" value="delete">Eliminar</button>
-    </form>
-
-    <hr>
-
-    <!-- Formulario para Leer -->
-    <form action="producto_crud.php" method="GET">
-        <h2>Buscar Producto</h2>
-        <label for="search_id">ID del Producto (Dejar vacío para ver todos):</label>
-        <input type="text" id="search_id" name="id_search"><br><br>
-        <label for="search_id">Nombre del Producto:</label>
-        <input type="text" id="search_id" name="nombre_search"><br><br>
-        <button type="submit" name="read" value="read">Buscar</button>
-    </form>
