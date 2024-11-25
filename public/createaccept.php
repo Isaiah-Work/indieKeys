@@ -9,25 +9,42 @@
         die("Error de conexión: " . mysqli_connect_error());
     }
 
-    // CREATE Pedir todos los valores del formulario
-    $id_juego = mysqli_real_escape_string($conexion, $_POST['id_juego'] ?? '');
-    $nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);
-    $descripcion = mysqli_real_escape_string($conexion, $_POST['descripcion']);
-    $precio = mysqli_real_escape_string($conexion, $_POST['precio']);
-    $inventario = mysqli_real_escape_string($conexion, $_POST['inventario']);
-    $desarrollador = mysqli_real_escape_string($conexion, $_POST['desarrollador']);
-    $plataforma = mysqli_real_escape_string($conexion, $_POST['plataforma']);
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        
     
-    $imagenBase64 = null;
+        // CREATE Pedir todos los valores del formulario
+        $id_juego = mysqli_real_escape_string($conexion, $_POST['id_juego'] ?? '');
+        $nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);
+        $descripcion = mysqli_real_escape_string($conexion, $_POST['descripcion']);
+        $precio = mysqli_real_escape_string($conexion, $_POST['precio']);
+        $inventario = mysqli_real_escape_string($conexion, $_POST['inventario']);
+        $desarrollador = mysqli_real_escape_string($conexion, $_POST['desarrollador']);
+        $plataforma = mysqli_real_escape_string($conexion, $_POST['plataforma']);
+        
+        $imagen = $_FILES['foto'];
 
-    if(isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK){
-        $foto = file_get_contents($_FILES['foto']['tmp_name']);
-        $imagenBase64 = base64_encode($foto);
+        $carpetaImagen = __DIR__ . '/imagenesServidor/';
+
+        // Verifica si la carpeta existe
+        if (!is_dir($carpetaImagen)) {
+            die("La carpeta '$carpetaImagen' no existe. Por favor, crea la carpeta o verifica la ruta.");
+        }
+
+        // Verifica si el script tiene permisos de escritura
+        if (!is_writable($carpetaImagen)) {
+            die("La carpeta '$carpetaImagen' no tiene permisos de escritura.");
+        }
+
+        $nombreImagen = md5(uniqid(rand(), true)) . ".jpg";
+
+        move_uploaded_file($imagen['tmp_name'],  $carpetaImagen . $nombreImagen);
+
+
     }
     
     if(isset($_POST['create'])){
             $sql = "INSERT INTO producto (nombre, descripcion, precio, foto, inventario, desarrollador, plataforma) 
-                    VALUES ('$nombre', '$descripcion', $precio, '$imagenBase64', $inventario, '$desarrollador', '$plataforma')";
+                    VALUES ('$nombre', '$descripcion', '$precio', '$nombreImagen ', '$inventario', '$desarrollador', '$plataforma')";
 
             
             if (mysqli_query($conexion, $sql)) {
@@ -41,7 +58,7 @@
     }elseif(isset($_POST['update'])){
         if(!empty($id_juego)) {
             $sql = "UPDATE producto SET nombre = '$nombre', descripcion = '$descripcion', precio = '$precio',
-                foto = '$imagenBase64', inventario = '$inventario', desarrollador = '$desarrollador', plataforma = '$plataforma'
+                 foto = '$nombreImagen', inventario = '$inventario', desarrollador = '$desarrollador', plataforma = '$plataforma'
                 WHERE id_juego = '$id_juego';";
             if (mysqli_query($conexion, $sql)) {
                 echo "Producto actualizado exitosamente.";

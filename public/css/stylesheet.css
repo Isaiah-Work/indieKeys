@@ -44,13 +44,23 @@
     color:white
 }
 .c-card__button{
-    background-color: var(--color-sec);
+    background-color: var(--color-sec); 
     color: white;
 }
 .c-card__button:hover{
-    background-color: var(--color-third);
+    
+    background-color: var(--color-sec); 
+    opacity: 0.5;
+    color: black;
 }
 a{
     text-decoration: none;
     color: inherit;
+}
+.c-btn__one{
+    background-color: var(--color-sec);
+    color: white;
+}
+.c-btn__two{
+    background-color: var(--color-third);
 }

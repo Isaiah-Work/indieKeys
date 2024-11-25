@@ -19,23 +19,21 @@ $id_usuario = mysqli_real_escape_string($conexion,$_SESSION['id_usuario']);
 $id_producto = mysqli_real_escape_string($conexion, $_POST['id_juego']);
 
 // Hacer el Select del carrito de compras para los productos
-$checksql = "SELECT cantidad FROM carrito_compras WHERE id_producto = $id_producto;";
+$checksql = "SELECT cantidad FROM carrito_compras WHERE id_usuario = $id_usuario AND id_producto = $id_producto;";
 $res = mysqli_query($conexion, $checksql);
 
 // Verificar que boton se acciono: Catalogo, Agregar Producto, Quitar Producto.
 if(isset($_POST['btnAccion'])){
-
     //Si no esta en el carrito agregarlo
     if(mysqli_num_rows($res) == 0){
         $sql = "INSERT INTO carrito_compras (id_usuario, id_producto, cantidad) VALUES
             ($id_usuario, $id_producto, 1);";
         mysqli_query($conexion, $sql);
-
     }else{ 
 
     //Si esta en el carrito añadir en la columna 
     // Se guarda en un array asociativo la tupla
-    $row = mysqli_fetch_assoc($res);
+    $row = mysqli_fetch_assoc($res2);
     /* Obtenemos del array asociativo el valor de la tupla
      para guardarla en una variable y sumarle 1 */
         $nueva_cantidad = $row['cantidad'] + 1;
@@ -43,6 +41,7 @@ if(isset($_POST['btnAccion'])){
                 WHERE id_usuario = $id_usuario AND 
                 id_producto = $id_producto;";
         mysqli_query($conexion, $othersql);
+        echo '<h2>' . $othersql .'</h2>';
     }
 
     header('Location: ../public/catalogo.php');

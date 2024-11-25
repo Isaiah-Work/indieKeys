@@ -36,4 +36,5 @@ if (mysqli_query($conexion, $sql)) {
     echo "Error al crear el producto: " . mysqli_error($conexion);
 }
 mysqli_close($conexion);
+header('Location: catalogo.php');
 ?>

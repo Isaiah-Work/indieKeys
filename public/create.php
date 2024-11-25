@@ -1,37 +1,90 @@
 <?php
-    include '../templates/header.php';
+    include '../templates/headeradm.php';
 ?>
 
-    <h1>CREATE | UPDATE - Producto</h1>
+<div class="container mt-4">
+    <h1 class="text-center fw-bold">CREATE | UPDATE - Producto</h1>
 
-    <!-- Formulario para Crear o Actualizar -->
-    <form action="createaccept.php" method="POST" enctype="multipart/form-data">
-        <h2>Crear o Actualizar Producto</h2>
-        <label for="id">ID (solo para actualizar):</label>
-        <input type="text" id="id" name="id_juego" placeholder="Dejar vacío para crear"><br><br>
+    <form action="createaccept.php" method="POST" enctype="multipart/form-data" class="mt-4">
+        <h2 class="fw-bold mb-4 text-center">Crear o Actualizar Producto</h2>
 
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required><br><br>
+        <div class="mb-3">
+            <label for="id" class="form-label">ID (solo para actualizar):</label>
+            <input 
+                type="text" 
+                name="id_juego" 
+                class="form-control" 
+                placeholder="Dejar vacío para crear">
+        </div>
 
-        <label for="descripcion">Descripción:</label>
-        <textarea id="descripcion" name="descripcion" required></textarea><br><br>
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre:</label>
+            <input 
+                type="text"
+                name="nombre" 
+                class="form-control" 
+                required>
+        </div>
 
-        <label for="precio">Precio:</label>
-        <input type="number" id="precio" name="precio" step="0.01" required><br><br>
+        <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripción:</label>
+            <textarea 
+                name="descripcion" 
+                class="form-control" 
+                rows="3" 
+                required>
+            </textarea>
+        </div>
 
-        <label for="foto">Foto (URL):</label>
-        <input type="file" id="foto" name="foto"><br><br>
+        <div class="mb-3">
+            <label for="precio" class="form-label">Precio:</label>
+            <input 
+                type="number" 
+                name="precio" 
+                class="form-control"  
+                required>
+        </div>
 
-        <label for="inventario">Inventario:</label>
-        <input type="number" id="inventario" name="inventario" required><br><br>
+        <div class="mb-3">
+            <label for="foto" class="form-label">Foto (archivo):</label>
+            <input 
+                type="file" 
+                name="foto" 
+                class="form-control">
+        </div>
 
-        <label for="desarrollador">Desarrollador:</label>
-        <input type="text" id="desarrollador" name="desarrollador"><br><br>
+        <div class="mb-3">
+            <label for="inventario" class="form-label">Inventario:</label>
+            <input 
+                type="number" 
+                name="inventario" 
+                class="form-control" 
+                required>
+        </div>
 
-        <label for="plataforma">Plataforma:</label>
-        <input type="text" id="plataforma" name="plataforma"><br><br>
+        <div class="mb-3">
+            <label for="desarrollador" class="form-label">Desarrollador:</label>
+            <input 
+                type="text" 
+                name="desarrollador" 
+                class="form-control">
+        </div>
 
-        <button type="submit" name="create" value="create">Crear</button>
-        <button type="submit" name="update" value="update">Actualizar</button>
+        <div class="mb-3">
+            <label for="plataforma" class="form-label">Plataforma:</label>
+            <input 
+                type="text" 
+                name="plataforma" 
+                class="form-control">
+        </div>
+
+        <div class="justify-content-center gap-3 mb-4 pb-4">
+            <button type="submit" name="create" value="create" class="c-card__button btn ">
+                Crear
+            </button>
+            <button type="submit" name="update" value="update" class="c-card__button btn ">
+                Actualizar
+            </button>
+        </div>
     </form>
-
+</div>

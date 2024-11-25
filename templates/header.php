@@ -8,6 +8,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="../public/css/stylesheet.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+    <meta http-equiv="Pragma" content="no-cache">
 </head>
 <body>
 
@@ -40,7 +45,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="../public/catalogo.php" tabindex="-1" aria-disabled="true">Catalogo</a>
+                    <a class="nav-link " href="../public/catalogo.php" tabindex="-1" aria-disabled="true">Catálogo</a>
                 </li>
 
                 <li class="nav-item">

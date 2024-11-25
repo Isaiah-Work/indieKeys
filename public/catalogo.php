@@ -48,18 +48,18 @@
                 <div class="col-sm-12 col-md-4 col-lg-4 col-xl-3 mx-auto mt-3">
 
                     <a href="" class="">
-                    <div class="c-card p-3 mb-5 pb-5">
+                    <div class="card p-3 mb-5 pb-5">
 
                         <img 
-                        title="Título Producto"
-                        alt="Título"
+                        title="<?php echo $producto['nombre']; ?>"
+                        alt="<?php echo $producto['nombre']; ?>"
                         class="card-img-top" 
-                        src="data:image/jpeg;base64, <?php echo $producto['foto']; ?>">
+                        src=" <?php echo 'imagenesServidor/' . $producto['foto']; ?>">
                             
                         <div class="card-body mt-4">
 
-                            <span><?php echo $producto['nombre']?></span>
-                            <h5 class="card-title mt-4">$<?php echo $producto['precio']?></h4>
+                            <h3><span><?php echo $producto['nombre']?></span></h3>
+                            <h5 class="card-title mt-4">$<?php echo $producto['precio']?></h5>
                             
 
                             <label class=" "> <?php 
