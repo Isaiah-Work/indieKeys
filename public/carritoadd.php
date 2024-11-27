@@ -33,7 +33,7 @@ if(isset($_POST['btnAccion'])){
 
     //Si esta en el carrito añadir en la columna 
     // Se guarda en un array asociativo la tupla
-    $row = mysqli_fetch_assoc($res2);
+    $row = mysqli_fetch_assoc($res);
     /* Obtenemos del array asociativo el valor de la tupla
      para guardarla en una variable y sumarle 1 */
         $nueva_cantidad = $row['cantidad'] + 1;
@@ -43,6 +43,8 @@ if(isset($_POST['btnAccion'])){
         mysqli_query($conexion, $othersql);
         echo '<h2>' . $othersql .'</h2>';
     }
+
+    $_SESSION['alerta'] = "Producto agregado al carrito.";
 
     header('Location: ../public/catalogo.php');
     exit;
@@ -56,6 +58,7 @@ if(isset($_POST['btnAccion'])){
                 id_producto = $id_producto;";
     mysqli_query($conexion, $othersql);
 
+    
     header('Location: /public/carrito.php');
     exit;
 

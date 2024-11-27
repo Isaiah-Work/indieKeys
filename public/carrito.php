@@ -1,13 +1,18 @@
 <?php
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-
     require "../src/controllers/auth.php";
     verificarSesion();
     
     include "../templates/header.php";
+    
+    session_start(); 
+
+    if (isset($_SESSION['alerta'])) {
+        $alerta = $_SESSION['alerta'];
+        echo "<script>alert('$alerta');</script>";
+        unset($_SESSION['alerta']); 
+    }
 ?>
+
 
 <div class="c-container">
     <div class="container">
@@ -24,7 +29,7 @@
                     FROM carrito_compras as c, producto as p 
                     WHERE id_usuario = $id_usuario AND p.id_juego = c.id_producto;";
             $res = mysqli_query($conexion, $sql);
-            $carritoProductos = mysqli_fetch_all($res, MYSQLI_ASSOC); // Array Asociativo 
+            $carritoProductos = mysqli_fetch_all($res, MYSQLI_ASSOC); 
         ?>
         
         <div class="container mt-4">
@@ -50,7 +55,7 @@
                                             alt="<?php echo $producto['nombre']; ?>"
                                             class="img-fluid img-thumbnail"
                                             style="max-width: 100px; height: auto;" 
-                                            src="data:image/jpeg;base64, <?php echo $producto['foto']; ?>">
+                                            src="<?php echo 'imagenesServidor/' . $producto['foto']; ?>">
                                     </td>
                                     <td>
                                         <h6><?php echo $producto['nombre']; ?></h6>

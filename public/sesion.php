@@ -59,8 +59,8 @@
                                             title="<?php echo $historial['nombre']; ?>"
                                             alt="<?php echo $historial['nombre']; ?>"
                                             class="img-fluid img-thumbnail"
-                                            style="max-width: 100px; height: auto;" 
-                                            src="data:image/jpeg;base64, <?php echo $historial['foto']; ?>">
+                                             style="max-width: 100px; height: auto;" 
+                                            src="<?php echo 'imagenesServidor/' . $historial['foto']; ?>">
                                     </td>
                                     <td>
                                         <h6><?php echo $historial['nombre']; ?></h6>

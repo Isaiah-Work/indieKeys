@@ -1,9 +1,4 @@
 <?php
-//Reportar errores del tipo http
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 //Iniciar Sesion
 session_start();
 
@@ -48,7 +43,6 @@ if(mysqli_num_rows($res) == 1) {
     exit;
 }
 
-mysqli_close($conexion);
 
 
 

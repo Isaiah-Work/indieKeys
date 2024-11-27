@@ -1,6 +1,15 @@
 <?php 
     include "../templates/header.php";
 ?>
+<?php
+session_start(); 
+
+if (isset($_SESSION['alerta'])) {
+    $alerta = $_SESSION['alerta'];
+    echo "<script>alert('$alerta');</script>";
+    unset($_SESSION['alerta']); 
+}
+?>
     <!--Contenedor Principal-->
     <div class="c-container  pt-5 pb-4">
         <div class="container text-left">
@@ -48,14 +57,15 @@
                 <div class="col-sm-12 col-md-4 col-lg-4 col-xl-3 mx-auto mt-3">
 
                     <a href="" class="">
-                    <div class="card p-3 mb-5 pb-5">
+                    <div class="card p-3 mb-5 pb-5" >
 
                         <img 
                         title="<?php echo $producto['nombre']; ?>"
                         alt="<?php echo $producto['nombre']; ?>"
                         class="card-img-top" 
-                        src=" <?php echo 'imagenesServidor/' . $producto['foto']; ?>">
-                            
+                        src=" <?php echo 'imagenesServidor/' . $producto['foto']; ?>"
+                        >
+                        
                         <div class="card-body mt-4">
 
                             <h3><span><?php echo $producto['nombre']?></span></h3>
@@ -64,7 +74,7 @@
 
                             <label class=" "> <?php 
                                 if($producto['inventario'] == 0){
-                                    echo "<i class='fa fa-check' aria-hidden='true'></i>";  
+                                    echo "<i class='bi bi-x' aria-hidden='true'></i>";  
                                     echo "Sin existencia";
                                 } else{
                                     echo "<i class='fa fa-check' aria-hidden='true'></i>";  

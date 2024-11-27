@@ -16,23 +16,23 @@
             <form action="registeraccept.php" method="POST">
                 <div class="mb-3">
                     <label for="username" class="form-label">Usuario:</label>
-                    <input class="form-control" type="text" name="username" id="username" placeholder="Introduce tu nombre de usuario">
+                    <input class="form-control" type="text" name="username" id="username" placeholder="Introduce tu nombre de usuario" required>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email:</label>
-                    <input class="form-control" type="email" name="email" id="email" placeholder="Introduce tu email">
+                    <input class="form-control" type="email" name="email" id="email" placeholder="Introduce tu email" required>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password:</label>
-                    <input class="form-control" type="password" name="password" id="password" placeholder="Introduce tu contraseña">
+                    <input class="form-control" type="password" name="password" id="password" placeholder="Introduce tu contraseña" required>
                 </div>
                 <div class="mb-3">
                     <label for="address" class="form-label">Dirección:</label>
-                    <input class="form-control" type="text" name="address" id="address" placeholder="Introduce tu dirección">
+                    <input class="form-control" type="text" name="address" id="address" placeholder="Introduce tu dirección" required>
                 </div>
                 <div class="mb-3">
                     <label for="bday" class="form-label">Fecha de nacimiento:</label>
-                    <input class="form-control" type="date" name="bday" id="bday">
+                    <input class="form-control" type="date" name="bday" id="bday" required>
                 </div>
                 <button class="c-card__button btn w-100 mt-3 mb-3" type="submit">Crear Cuenta</button>
             </form>

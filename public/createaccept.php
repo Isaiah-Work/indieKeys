@@ -13,7 +13,7 @@
         
     
         // CREATE Pedir todos los valores del formulario
-        $id_juego = mysqli_real_escape_string($conexion, $_POST['id_juego'] ?? '');
+        $id_juego = mysqli_real_escape_string($conexion, $_POST['id_juego']);
         $nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);
         $descripcion = mysqli_real_escape_string($conexion, $_POST['descripcion']);
         $precio = mysqli_real_escape_string($conexion, $_POST['precio']);
@@ -41,6 +41,8 @@
 
 
     }
+
+    
     
     if(isset($_POST['create'])){
             $sql = "INSERT INTO producto (nombre, descripcion, precio, foto, inventario, desarrollador, plataforma) 
@@ -56,14 +58,46 @@
         //}
 
     }elseif(isset($_POST['update'])){
+
+        // Guardar valores si es que para actualizar
+
         if(!empty($id_juego)) {
-            $sql = "UPDATE producto SET nombre = '$nombre', descripcion = '$descripcion', precio = '$precio',
-                 foto = '$nombreImagen', inventario = '$inventario', desarrollador = '$desarrollador', plataforma = '$plataforma'
-                WHERE id_juego = '$id_juego';";
+
+            $sqlfill = "SELECT * FROM producto WHERE id_juego = '$id_juego';";
+            $resultadofill = mysqli_query($conexion, $sqlfill);
+
+            if ( $resultadofill && mysqli_num_rows( $resultadofill) > 0) {
+                $producto = mysqli_fetch_assoc( $resultadofill);
+        
+            $variables = [
+                'nombre' => $nombre,
+                'descripcion' => $descripcion,
+                'precio' => $precio,
+                'nombreImagen' => $nombreImagen,
+                'inventario' => $inventario,
+                'desarrollador' => $desarrollador,
+                'plataforma' => $plataforma,
+            ];
+            
+            foreach ($variables as $key => $value) {
+                if (empty($value)) {
+                    $variables[$key] = $producto[$key]; // Usar el valor de la base de datos si el campo está vacío
+                }
+            }
+            
+            
+
+            $sql = "UPDATE producto SET nombre = '{$variables['nombre']}', descripcion = '{$variables['descripcion']}', 
+            precio = '{$variables['precio']}', foto = '{$variables['nombreImagen']}', inventario = '{$variables['inventario']}', 
+            desarrollador = '{$variables['desarrollador']}', plataforma = '{$variables['plataforma']}' WHERE id_juego = '$id_juego';";
+
             if (mysqli_query($conexion, $sql)) {
                 echo "Producto actualizado exitosamente.";
             } else {
                 echo "Error al actualizar el producto: " . mysqli_error($conexion);
+            }
+            } else {
+                echo "No se encontró el producto con el ID proporcionado.";
             }
         }else {
             echo "ID de juego no proporcionado para la actualización.";

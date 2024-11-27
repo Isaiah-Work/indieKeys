@@ -11,7 +11,7 @@
             <div class="col-md-4 col-lg-3 col-xl-2 mx-auto mt-3">
                 <h5 class="c-footer__text font-weight-bold text-uppercase text-warning">Enlaces</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="">Sobre Nosotros</a></li>
+                    <li><a href="about.php" class="">Sobre Nosotros</a></li>
                     <li><a href="#" class="">FAQ</a></li>
                     <li><a href="#" class="">Inicio</a></li>
                 </ul>
@@ -50,25 +50,11 @@
             <div class="col-md-5 col-lg-4 text-center text-md-right">
                 <ul class="list-unstyled list-inline mb-0">
                     <li class="list-inline-item">
-                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle">
-                            <i class="fab fa-facebook"></i>
+                        <a href="https://github.com/Isaiah-Work/indieKeys.git" class="btn btn-outline-light btn-sm rounded-circle">
+                            <i class="bi bi-github"></i>
                         </a>
                     </li>
-                    <li class="list-inline-item">
-                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </li>
+                    
                 </ul>
             </div>
         </div>

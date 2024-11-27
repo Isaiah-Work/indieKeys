@@ -1,16 +1,9 @@
 <?php
-    //Reportar errores del tipo http
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-
-    
     require "../src/controllers/conexion.php";
     if(!$conexion){
         die("Error de conexión: " . mysqli_connect_error());
     }
 
-    //Registro de usuario
 
     // Limpiar datos
     $username = mysqli_real_escape_string($conexion, $_POST['username']);
@@ -30,12 +23,6 @@
         exit;
     }
 
-    if (empty($username) || empty($email) || empty($password) || empty($bday) || empty($address)) {
-        
-    }
-    
-    // Hacer la verificación de los datos usuario y correo único
-
 
     //Registro en la tabla
     $sql = "INSERT INTO usuario (usuario, correo, contrasena, fecha_nac, direccion) VALUES 
@@ -44,9 +31,18 @@
     // Verificar Si la conexión fue exitosa y subirla
     if (mysqli_query($conexion, $sql)) {
         echo "Usuario registrado exitosamente.";
+        session_start();
+        $sqllogin = "SELECT * FROM usuario WHERE usuario = '$username'";
+        $reslogin = mysqli_query($conexion, $sqllogin); 
+        $usuarioData = mysqli_fetch_array($reslogin);
+        $_SESSION['usuario'] = $usuarioData['usuario'];
+        $_SESSION['correo'] = $usuarioData['correo'];
+        $_SESSION['id_usuario'] = $usuarioData['id_usuario'];
+
     } else {
         echo "Error al registrar el usuario: " . mysqli_error($conexion);
     }
+    
 
     mysqli_close($conexion);
     header('Location: /public/login.php');

@@ -16,56 +16,40 @@
 </head>
 <body>
 
-    
-
     <nav class="c-header navbar navbar-expand-md navbar-dark">
 
         <div class="container">
 
             <a class="navbar-brand" href="">
-                <h2>indieKeys</h2><!-- <img clas="img" height="40" src="../public/images/Rocky_Linux_Logo.svg" alt="Company Logo">     -->
+                <h2>indieKeys</h2>
             </a>
-           
-            <!--Menu de hamburguesa en el Breakpoint md-->
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
             data-bs-target="#custom-navbar" aria-controls="custom-navbar" 
             aria-expanded="false" aria-label="Toggle navigation">
-
                 <span class="navbar-toggler-icon"></span>
-
             </button>
 
-            <!--Items de La lista-->
             <div class="collapse navbar-collapse" id="custom-navbar">
-
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link " href="../public/paneladmin.php" tabindex="-1" aria-disabled="true">Admin</a>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link " href="../public/paneladmin.php" tabindex="-1" aria-disabled="true">Admin</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link " href="../public/catalogo.php" tabindex="-1" aria-disabled="true">Catálogo</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="../public/carrito.php">
-                        <i class="fa fa-shopping-cart mr-3" aria-hidden="true"></i> Mi carrito
-                    </a>
-                </li>
-                <li class="nav-item mr-5 pr-5">
-                    <a href="../public/login.php" class="nav-link">Sesión</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="../public/catalogo.php" tabindex="-1" aria-disabled="true">Catálogo</a>
+                    </li>
                 </ul>
-
-            <!--Barra de Busqueda-->
-                <!-- <form class="d-flex">
-
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="c-header__button btn mr-5" type="submit">Search</button>
-
-                </form> -->
-
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../public/carrito.php">
+                            <i class="fa fa-shopping-cart mr-3" aria-hidden="true"></i> Mi carrito
+                        </a>
+                    </li>
+                    <li class="nav-item mr-5 pr-5">
+                        <a href="../public/login.php" class="nav-link">Sesión</a>
+                    </li>
+                </ul>
           </div>
         </div>
 </nav>

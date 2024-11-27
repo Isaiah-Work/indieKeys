@@ -3,17 +3,18 @@
 ?>
 
 <div class="container mt-4">
-    <h1 class="text-center fw-bold">CREATE - Producto</h1>
+    <h1 class="text-center fw-bold">UPDATE - Producto</h1>
 
     <form action="createaccept.php" enctype="multipart/form-data" method="POST" class="mt-4">
         <h2 class="fw-bold mb-4 text-center">Crear o Actualizar Producto</h2>
 
         <div class="mb-3">
-            
+            <label for="id" class="form-label">ID:</label>
             <input 
-                type="hidden" 
+                type="text" 
                 name="id_juego" 
-                >
+                class="form-control" 
+               >
         </div>
 
         <div class="mb-3">
@@ -22,7 +23,7 @@
                 type="text"
                 name="nombre" 
                 class="form-control" 
-                required>
+                >
         </div>
 
         <div class="mb-3">
@@ -31,7 +32,7 @@
                 name="descripcion" 
                 class="form-control" 
                 rows="3" 
-                required>
+                >
             </textarea>
         </div>
 
@@ -41,7 +42,7 @@
                 type="number" 
                 name="precio" 
                 class="form-control"  
-                required>
+                >
         </div>
 
         <div class="mb-3">
@@ -49,8 +50,7 @@
             <input 
                 type="file" 
                 name="foto" 
-                class="form-control"
-                required>
+                class="form-control">
         </div>
 
         <div class="mb-3">
@@ -59,7 +59,7 @@
                 type="number" 
                 name="inventario" 
                 class="form-control" 
-                required>
+                >
         </div>
 
         <div class="mb-3">
@@ -67,8 +67,7 @@
             <input 
                 type="text" 
                 name="desarrollador" 
-                class="form-control"
-                required>
+                class="form-control">
         </div>
 
         <div class="mb-3">
@@ -76,13 +75,12 @@
             <input 
                 type="text" 
                 name="plataforma" 
-                class="form-control"
-                required>
+                class="form-control">
         </div>
 
         <div class="justify-content-center gap-3 mb-4 pb-4">
-            <button type="submit" name="create" value="create" class="c-card__button btn ">
-                Crear
+            <button type="submit" name="update" value="update" class="c-card__button btn ">
+                Actualizar
             </button>
         </div>
     </form>

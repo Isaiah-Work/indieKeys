@@ -19,12 +19,12 @@
             <form action="loginaccept.php" method="POST">
                 <div class="mb-3">
                     <label for="username" class="form-label">Username:</label>
-                    <input class="form-control" type="text" name="username" placeholder="Introduce tu usuario">
+                    <input class="form-control" type="text" name="username" placeholder="Introduce tu usuario" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="password">Password:</label>
                     <div class="input-group">
-                        <input class="form-control" type="password" name="password"  placeholder="Introduce tu contraseña">
+                        <input class="form-control" type="password" name="password"  placeholder="Introduce tu contraseña" required>
                     </div>
                 </div>
 
